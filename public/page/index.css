@@ -1,0 +1,30 @@
+/* 首页布局 */
+.g-header{
+  height: 90px;
+  margin:0 auto;
+  background-color: #fff;
+}
+.g-header .g-hdwrap{
+  width:1080px;
+  margin:0 auto;
+}
+.g-banner{
+  height: 356px;
+  position:relative;
+}
+.g-body{
+  width:1080px;
+  margin:50px auto 0;
+}
+.g-main{
+  width:760px;
+  float:left;
+}
+.g-side{
+  width:295px;
+  float:right;
+}
+.g-footer{
+  width:1080px;
+  margin:0 auto;
+}
