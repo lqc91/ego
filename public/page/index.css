@@ -28,3 +28,21 @@
   width:1080px;
   margin:0 auto;
 }
+
+/* header logo */
+.u-logo{
+  float:left;
+  width:220px;
+  height:52px;
+  margin:19px 40px;
+  background:url(../res/images/logo.png) left center no-repeat;
+}
+.u-logo .name{
+  display:block;
+  padding:16px 0 20px 100px;
+  font-size:14px;
+  font-weight:bold;
+  color:#000;
+  letter-spacing:8px;
+  overflow:hidden;
+}
