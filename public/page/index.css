@@ -46,3 +46,38 @@
   letter-spacing:8px;
   overflow:hidden;
 }
+
+/* Tabs */
+.m-tabs{
+  position:relative;
+  float:left;
+  width:312px;
+  margin-top:20px;
+}
+.m-tabs ul{
+  margin-right:-4px;
+}
+.m-tabs ul>li{
+  float:left;
+  margin-right:4px;
+  padding:15px 20px;
+  cursor:pointer;
+}
+.m-tabs ul>li.z-active>a{
+  color:#5ed0ba;
+}
+.m-tabs .tabs_track{
+  position:absolute;
+  bottom:-2px;
+  height:4px;
+  width:100%;
+  border-radius:2px;
+  background-color:#dcdddd;
+}
+.m-tabs .tabs_thumb{
+  position:absolute;
+  height:4px;
+  border-radius:2px;
+  background:#5ed0ba;
+  transition:ease .5s;
+}
