@@ -81,3 +81,32 @@
   background:#5ed0ba;
   transition:ease .5s;
 }
+
+/* 搜索框 */
+.m-search{
+  float:left;
+  position:relative;
+  margin:25px 30px 0 36px;
+}
+.u-search input{
+  width:196px;
+  height:40px;
+  text-indent:14px;
+  border-radius:4px;
+  border:1px solid #5ed0ba;
+  font-family:'SimSun',sans-serif;
+}
+.u-icon{
+  position:absolute;
+  right:10px;
+  top:50%;
+  margin-top:-10px;
+}
+.u-icon-search{
+  width:20px;
+  height:20px;
+  background:url('../res/images/search.png') center no-repeat;
+}
+.u-icon-btn{
+  border:none;
+}

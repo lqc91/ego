@@ -52,3 +52,28 @@ var Tabs = new App.Tabs({
   index: 0,
   nThumb: _.$('hdtabs').getElementsByClassName('tabs_thumb')[0]
 });
+
+// 搜索框实现
+(function(App){
+  function Search(container){
+    this.nForm = container;
+    this.nKeyword = this.nForm.getElementsByTagName('input')[0];
+    this.init();
+  }
+  Search.prototype.init = function(){
+    this.nForm.addEventListener('submit', this.search.bind(this));
+    // 将一个方法从对象中拿出来，然后再调用，如在回调中传入该方法,如果不做特殊处理的话，this一般会丢失原来的对象，基于bind方法，用原始对象创建一个绑定函数，可解决该问题
+    // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind#创建绑定函数
+  }
+  Search.prototype.search = function(event){
+    // 验证输入是否为空
+    // 如果为空，不提交表单
+    if(!/\S/.test(this.nKeyword.value)){
+      event.preventDefault(); // 阻止默认行为，即可阻止表单提交，又可阻止页面跳转
+      // return false; // 可阻止表单提交，但无法阻止页面跳转
+    }
+  }
+  App.Search = Search;
+})(window.App)
+
+var Search = new App.Search(_.$('search'));
