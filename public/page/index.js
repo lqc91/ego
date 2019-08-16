@@ -77,3 +77,24 @@ var Tabs = new App.Tabs({
 })(window.App)
 
 var Search = new App.Search(_.$('search'));
+
+(function(APP){
+  function Guest(log, reg){
+    this.nLogin = document.getElementById(log);
+    this.nRegister = document.getElementById(reg);
+    this.init();
+  }
+  Guest.prototype.init = function(){
+    this.nLogin.addEventListener('click', function(){
+      // 弹出登录弹窗
+      console.log(this.nLogin);
+    }.bind(this));
+    this.nRegister.addEventListener('click', function(){
+      // 弹出注册弹窗
+      console.log(this.nRegister);
+    }.bind(this));
+  }
+  App.Guest = Guest;
+})(window.App)
+
+var Guest = new App.Guest('login', 'register');

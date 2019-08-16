@@ -110,3 +110,36 @@
 .u-icon-btn{
   border:none;
 }
+
+/* 登录注册按钮 */
+.guest{
+  float:left;
+  margin-top:26px;
+  font-size:0;
+}
+#login, #register{
+  letter-spacing:5px;
+}
+#login{
+  text-indent:24px;
+  background:url('../res/images/user.png') 16px center no-repeat, #5ed0ba;
+}
+.u-btn{
+  display:inline-block;
+  width:90px;
+  text-align:center;
+  height:38px;
+  line-height:38px;
+  text-decoration:none;
+  border-radius:3px;
+  border:1px solid #5ed0ba;
+}
+.u-btn-primary{
+  color:#fff;
+  background-color:#5ed0ba;
+}
+.u-btn-link{
+  color:#5ed0ba;
+  background-color:#fff;
+  border:1px solid #fff;
+}
