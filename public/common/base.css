@@ -24,8 +24,14 @@ a,a:hover{color:#333;}
 a{
   display:inline-block;
 }
+img{
+  vertical-align:middle;
+}
 input{
   box-sizing:border-box;
+}
+span{
+  display:inline-block;
 }
 
 /* .f- function功能 */

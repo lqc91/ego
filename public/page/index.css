@@ -96,7 +96,7 @@
   border:1px solid #5ed0ba;
   font-family:'SimSun',sans-serif;
 }
-.u-icon{
+.u-search .u-icon{
   position:absolute;
   right:10px;
   top:50%;
@@ -113,6 +113,7 @@
 
 /* 登录注册按钮 */
 .guest{
+  display:none;
   float:left;
   margin-top:26px;
   font-size:0;
@@ -142,4 +143,77 @@
   color:#5ed0ba;
   background-color:#fff;
   border:1px solid #fff;
+}
+
+/* 用户信息 */
+/* 用户信息-超长文字处理 */
+.m-user{
+  float:left;
+  position:relative;
+  width:160px;
+  border:1px solid #fff;
+  padding:16.5px 10px;
+  margin-left:4px;
+  font-family:'Microsoft YaHei', sans-serif;
+}
+.m-user .user_name{
+  max-width:64px;
+  font-weight:bold;
+  letter-spacing:1px;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  margin-left:5px;
+}
+.m-user .u-icon{
+  position:absolute;
+}
+.m-user .u-icon-gender{
+  top:33px;
+  right:35px;
+  width:11px;
+  height:17px;
+}
+.m-user .u-icon-male{
+  background:url('../res/images/female.png') center no-repeat;
+}
+.m-user .u-icon-female{
+  background:url('../res/images/female.png') center no-repeat;
+}
+.m-user .u-icon-arrow{
+  top:37px;
+  right:10px;
+  width:16px;
+  height:10px;
+}
+.m-user .u-icon-up{
+  background:url('../res/images/up.png') center no-repeat;
+}
+.m-user .u-icon-down{
+  background:url('../res/images/down.png') center no-repeat;
+}
+/* 用户信息-hover效果 */
+.m-user .user_list{
+  display:none;
+  position:absolute;
+  width:100%;
+  left:0;
+  margin-top:15px;
+  text-indent:60px;
+  line-height:50px;
+}
+.m-user .user_list li:hover{
+  cursor:pointer;
+  background-color:#f5f4f6;
+}
+.m-user:hover{
+  padding-bottom:215px;
+  border-color:#e0e1e1;
+}
+.m-user:hover .user_list{
+  display:block;
+  z-index:99;
+}
+.m-user:hover .user_info{
+  border-color:#ddd;
 }
