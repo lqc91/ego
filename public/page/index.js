@@ -98,3 +98,101 @@ var Search = new App.Search(_.$('search'));
 })(window.App)
 
 var Guest = new App.Guest('login', 'register');
+
+// 轮播图实现
+(function(App){
+  var template = '<div class="m-slider"></div>'
+  function Slider(options){
+    _.extend(this, options);
+    // 组件节点
+    this.slider = _.html2node(template);
+    this.sliders = this.buildSlider();
+    this.cursors = this.buildCursor();
+    // 初始化事件
+    this.slider.addEventListener('mouseenter', this.stop.bind(this));
+    this.slider.addEventListener('mouseleave', this.autoPlay.bind(this));
+    // 初始化动作
+    this.container.appendChild(this.slider);
+    this.nav(this.initIndex || 0);
+    this.autoPlay();
+  }
+  // 下一页
+  Slider.prototype.next = function(){
+    var index = (this.index + 1) % this.imgLength;
+    this.nav(index);
+  }
+  // 跳到指定页
+  Slider.prototype.nav = function(index){
+    if(this.index === index) return;
+    this.last = this.index;
+    this.index = index;
+
+    this.fade();
+    this.setCurrent();
+  }
+  // 设置当前选中状态
+  Slider.prototype.setCurrent = function(){
+    // 去除之前选中节点的选中状态
+    _.delClassName(_.$$('z-active')[0], 'z-active');
+    // 添加当前选中节点的选中状态
+    _.addClassName(this.cursors[this.index], 'z-active');
+  }
+  // 自动播放
+  Slider.prototype.autoPlay = function(){
+    this.timer = setInterval(function(){
+      this.next();
+    }.bind(this), this.interval)
+  }
+  // 停止自动播放
+  Slider.prototype.stop = function(){
+    clearInterval(this.timer);
+  }
+  // 切换效果
+  Slider.prototype.fade = function(){
+    if(this.last !== undefined){
+      this.sliders[this.last].style.opacity = 0;
+    }
+    this.sliders[this.index].style.opacity = 1;
+  }
+  // 构造图片列表节点
+  Slider.prototype.buildSlider = function(){
+    var slider = document.createElement('ul'),
+    html = '';
+
+    for(var i = 0; i < this.imgLength; i++){
+      html += '<li class="slider_img">' + 
+        '<img src="./res/images/banner' + i + '.jpg" alt="slider img">' + 
+      '</li>';
+    }
+    slider.innerHTML = html;
+    this.slider.appendChild(slider);
+    return slider.children;
+  }
+  // 构造指示器节点
+  Slider.prototype.buildCursor = function(){
+    var cursor = document.createElement('ul'),
+    html = '';
+
+    cursor.className = 'm-cursor';
+    for(var i = 0; i < this.imgLength; i++){
+      html += '<li data-index=' + i + '></li>';
+    }
+    cursor.innerHTML = html;
+    this.slider.appendChild(cursor);
+    // 处理点击事件
+    cursor.addEventListener('click', function(event){
+      var index = event.target.dataset.index;
+      this.nav(index);
+    }.bind(this))
+    return cursor.children;
+  }
+
+  App.Slider = Slider;
+})(window.App)
+
+var slider = new App.Slider({
+  container: _.$$('g-banner')[0],
+  initIndex: 0,
+  interval: 5000,
+  imgLength: 4
+});
